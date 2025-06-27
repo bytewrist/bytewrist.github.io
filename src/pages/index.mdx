@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/Layout.astro
-title: Research Project Page Template
+title: 'Enabling 20-DoF ByteDexter Hand Dexterous Teleoperation through Human Motion Retargeting'
 description: Simple project page template for your research paper, built with Astro and Tailwind CSS
 favicon: favicon.svg
 thumbnail: screenshot-light.png
@@ -18,11 +18,13 @@ import LaTeX from "../components/LaTeX.astro";
 
 import { ImageComparison } from "../components/ImageComparison.tsx";
 
-import outside from "../assets/outside.mp4";
-import transformer from "../assets/transformer.webp";
-import Splat from "../components/Splat.tsx"
-import dogsDiffc from "../assets/dogs-diffc.png"
-import dogsTrue from "../assets/dogs-true.png"
+import hardware from "../assets/hardware.mp4";
+import retarget from "../assets/retarget.mp4";
+import teleoperation_system from "../assets/teleoperation_system.png";
+import hand_retargeting from "../assets/hand_retargeting.png";
+import experiment from "../assets/experiment.png";
+import long_horizon from "../assets/long_horizon.png";
+import hand from "../assets/hand.png";
 
 
 import CodeBlock from "../components/CodeBlock.astro";
@@ -33,41 +35,16 @@ export const components = {pre: CodeBlock, table: Table}
   title={frontmatter.title}
   authors={[
     {
-      name: "Roman Hauksson",
-      url: "https://roman.technology",
-      institution: "Independent",
-      notes: ["*", "†"],
-    },
-    {
-      name: "Author Two",
-      institution: "Institution Two",
-      notes: ["*", "†"],
-    },
-    {
-      name: "Author Three",
-      institution: "Institution Three",
-      notes: ["†"],
-    },
-    {
-      name: "Author Four",
-      institution: "Institution Four",
+      name: "ByteDance Seed",
+      institution: "ByteDance",
+      notes: [],
     },
   ]}
-  conference="Conference Name"
-  notes={[
-    {
-      symbol: "*",
-      text: "author note one",
-    },
-    {
-      symbol: "†",
-      text: "author note two",
-    },
-  ]}
+  conference=""
   links={[
     {
       name: "Paper",
-      url: "",
+      url: "https://github.com/RomanHauksson/academic-project-astro-template",
       icon: "ri:file-pdf-2-line",
     },
     {
@@ -77,95 +54,120 @@ export const components = {pre: CodeBlock, table: Table}
     },
     {
       name: "arXiv",
-      url: "",
+      url: "https://github.com/RomanHauksson/academic-project-astro-template",
       icon: "academicons:arxiv",
-    },
-    {
-      name: "Bluesky",
-      url: "",
-      icon: "ri:bluesky-line"
     }
   ]}
   />
 
-<Video source={outside} />
+<Video source={hardware} />
 
 <HighlightedSection>
 
 ## Abstract
 
-This is a live demo for a template you can use to create a simple project page for your research paper. See the code for the template and instructions on how to use it yourself [here](https://github.com/RomanHauksson/academic-project-astro-template). It's made with the [Astro web framework](https://astro.build/) and styled with [Tailwind CSS](https://tailwindcss.com/). You write the content in [MDX](https://mdxjs.com/), which enables markdown formatting like **bold**, _italics_, and ~strikethrough~, as well as custom components like <SmallCaps>small caps.</SmallCaps>
+Replicating human-level dexterity remains a fundamental robotics challenge, requiring integrated solutions from mechatronic design to the control of high degree-of-freedom (DoF) robotic hands. While imitation learning shows promise in transferring human dexterity to robots, the efficacy of trained policies relies on the quality of human demonstration data. We bridge this gap with a hand-arm teleoperation system featuring: (1) a 20-DoF linkage-driven anthropomorphic robotic hand  for biomimetic dexterity, and (2) an optimization-based motion retargeting for real-time, high-fidelity reproduction of intricate human hand motions and seamless hand–arm coordination. We validate the system via extensive empirical evaluations, including dexterous in-hand manipulation tasks and a long-horizon task requiring the organization of a cluttered makeup table randomly populated with nine objects. Experimental results demonstrate its intuitive teleoperation interface with real-time control and the ability to generate high-quality demonstration data. Please refer to the accompanying video for further details.
 
 </HighlightedSection>
 
-## Figures
+## Method
 
-Use the figure component to display images, videos, equations, or any other element, with an optional caption.
+Our hand-arm teleoperation system achieves dexterous in-hand manipulation, including multi-object grasping, rotation, and regrasping. It also successfully manages grasping of various cosmetic items during a long-horizon cluttered-table organization task.
+
+<Video source={retarget} />
+
+### Robotic Hand-Arm Teleoperation System
+
+<div>
+
+ByteDexter’s four long fingers adopt the parallel–serial topology of [ILDA hand](https://example.com/paper.pdf), 
+but this design proves unsuitable for the thumb. Two DoFs at the MCP joint are coupled by the parallel linkage. As MCP flexion increases, 
+abduction/adduction range diminishes progressively—reaching zero in full flexion. Additionally, implementing thumb abduction/adduction with 
+two actuators mounted perpendicular to the palm unavoidably thickens the palm profile, compromising compactness. To address these limitations, 
+we developed a thumb kinematic structure that achieves decoupled, human‐like thumb mobility for advanced grasping and manipulation, allowing full-range MCP 
+and PIP flexion across the thumb's MCP entire abduction (<LaTeX inline formula="-4^\circ \;\text{to}\; 90^\circ" />) span.
+
+</div>
 
 <Figure>
-  <Image slot="figure" source={transformer} altText="Diagram of the transformer deep learning architecture." />
-  <span slot="caption">Diagram of the transformer deep learning architecture.</span>
+  <Image slot="figure" source={hand} altText="The proposed hand-arm teleoperation system." class="w-full" />
+  <span slot="caption">The ByteDexter hand. (a) robotic finger with 2-DoF MCP joint, 1-DoF PIP
+joint, with a passively actuated 1-DoF DIP joint, (b) the thumb’s kinematic structure, and (c) ByteDexter hand
+with thumb motion from zero abduction to its full range.</span>
 </Figure>
 
-## Image comparison slider
+The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove’s back via a custom holder to ensure synchronous tracking of wrist and finger movements. This setup delivers an intuitive, natural interface that enhances hand–arm coordination during teleoperation. On the robotic side, the ByteDexter anthropomorphic hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm’s seventh joint. The operators’ wrist poses from the Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands for the ByteDexter hand.
 
-An interactive, accessible slider component with keyboard navigation.
 <Figure>
-  <ImageComparison slot="figure" client:load imageUrlOne={dogsDiffc.src} imageUrlTwo={dogsTrue.src} altTextOne="Photo of two dogs running side-by-side in shallow water, lossily compressed using the DiffC algorithm" altTextTwo="Original photo of two dogs running side-by-side in shallow water" />
-  <span slot="caption">A photo of two dogs running side-by-side in shallow water, lossily compressed using the <a href="https://jeremyiv.github.io/diffc-project-page/">DiffC algorithm</a>.</span>
+  <Image slot="figure" source={teleoperation_system} altText="The proposed hand-arm teleoperation system." class="w-full" />
+  <span slot="caption">The proposed hand-arm teleoperation system.</span>
 </Figure>
 
-## Two columns
+### Hand Motion Retargeting
 
-Use the two columns component to display two columns of content. In this example, the first column contains a figure with a YouTube video and the second column contains a figure with a custom [React](https://react.dev/) component. By default, they display side by side, but if the screen is narrow enough (for example, on mobile), they're arranged vertically.
+<div>
+We retarget human hand pose data obtained from the Manus Glove into joint position references of the ByteDexter hand by solving an optimization problem that minimizes the difference between corresponding keyvectors in the robotic and human hand. 
+The finger design of ByteDexter adopts anatomically proportional dimensions scaled to human finger lengths. However, the palm size is constrained to prioritize functional integration of motors, embedded boards, and leadscrews, resulting in a non-anthropomorphic structure that introduces morphological discrepancies with human palm anatomy. 
+To address this non-anatomical factor, our approach diverges from prior methods using fingertip-to-wrist keyvectors; instead, we compute keyvectors from each fingertip to its own MCP joint. 
+A keyvector is the 3D vector between a pair of key points, pointing from the origin of one coordinate frame to the other, expressed in the robot hand’s base frame. 
+</div>
 
 <TwoColumns>
-  <Figure slot="left">
-    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
-    <span slot="caption">Take a look at this YouTube video.</span>
-  </Figure>
+  <div slot="left">
+    Right figure shows only the index-finger keyvectors: from the MCP joint to the fingertip, from the fingertip to the thumb tip, from the PIP joint to
+    the PIP joints of the middle and ring fingers, and from PIP joint to the pinky’s DIP joint. Iterating this process from the thumb to pinky and eliminating duplicates results in 15
+    unique keyvectors. Incorporating these keyvectors into the optimization captures the majority of the grasping
+    types: for pinch grasping, minimizing inter-finger distances aligns robotic
+    and human hand poses to reduce operator strain, whereas for power grasping, preserving fingertip-to-palm
+    distances are prioritized.
+  </div>
   <Figure slot="right">
-    <Splat slot="figure" client:idle />
-    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+    <Image slot="figure" source={hand_retargeting} altText="Hand keypoint vectors." class="w-full" />
+    <span slot="caption">Hand keypoint vectors.</span>
   </Figure>
 </TwoColumns>
 
-## Heading levels
+## Results
 
-Use headings to divide your content into sections.
+### In-hand Manipulation Results
 
-### Heading 3
+<div>
+We evaluate three canonical in-hand manipulation primitives—(i) regrasping to translate objects between
+fingers, (ii) sliding objects relative to the palm, and (iii) rotating objects or their components, and instantiate
+them in four benchmark tasks: (1) regrasping a bottle from a precision to a power grasp; (2) multi-object
+grasping; (3) lid unscrewing; and (4) push-to-open lids.
+</div>
 
-Go down a level to heading 3...
+<Figure>
+  <Image slot="figure" source={experiment} altText="In-hand manipulation tasks." class="w-full" />
+  <span slot="caption">In-hand manipulation tasks.</span>
+</Figure>
 
-#### Heading 4
 
-...and down again to heading 4.
+### Long-Horizon Teleoperation Results
 
-## LaTeX
+<div>
+We evaluated the system’s long-horizon teleoperation capabilities through a table organization task involving a
+cluttered workspace populated with randomly arranged cosmetic and skincare items, including serum bottles,
+cream tubes, lipsticks, brushes, and powder palettes. A multi-drawer makeup organizer was placed adjacent
+to the clutter, requiring the robotic hand-arm system to retrieve objects and place these in the organizer,
+additionally, insert items into a drawer. The system successfully
+managed diverse geometries and recovered from grasp slippage through real-time adjustments, demonstrating
+robust performance in unstructured environments.
+</div>
 
-You can also add LaTeX formulas, rendered during the build process using [KaTeX](https://katex.org/) so they're quick to load for visitors of your project page. You can write them inline, like this: <LaTeX inline formula="a^2 + b^2 = c^2" />. Or, you can write them as a block:
+<Figure>
+  <Image slot="figure" source={long_horizon} altText="Our hand-arm teleoperation system successfully grasps various items during a long-horizon table organization task." class="w-full" />
+  <span slot="caption">Our hand-arm teleoperation system successfully grasps various items during a long-horizon table organization task.</span>
+</Figure>
 
-<LaTeX formula="\int_a^b f(x) dx" />
-
-## Tables
-
-You can add simple tables using [GitHub Flavored Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables):
-
-| Model | Accuracy | F1 score | Training time (hours) |
-| :--- | :---: | :---: | :---: |
-| BERT-base | 0.89 | 0.87 | 4.5 |
-| RoBERTa-large | 0.92 | 0.91 | 7.2 |
-| DistilBERT | 0.86 | 0.84 | 2.1 |
-| XLNet | 0.90 | 0.89 | 6.8 |
-
-## BibTeX citation
+## Citation
 
 ```bibtex
-@misc{roman2024academic,
-  author = "{Roman Hauksson}",
-  title = "Academic Project Page Template",
-  year = "2024",
-  howpublished = "\url{https://research-template.roman.technology}",
+@misc{bytedance2025bdex,
+  author = "{ByteDance Seed}",
+  title = "Enabling 20-DoF ByteDexter Hand Dexterous Teleoperation through Human Motion Retargeting",
+  year = "2025",
+  howpublished = "\url{}",
 }
 ```
