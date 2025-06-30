@@ -11,7 +11,11 @@
 }
 
 body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Inter", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
 }
 a {
   @apply text-blue-500 dark:text-blue-300 hover:underline;
@@ -20,16 +24,16 @@ p {
   @apply text-lg w-full;
 }
 h1 {
-  @apply text-5xl text-center font-medium;
+  @apply text-5xl text-center font-semibold;
 }
 h2 {
-  @apply w-full text-3xl font-bold;
+  @apply w-full text-3xl font-semibold;
 }
 h3 {
-  @apply w-full text-xl font-bold;
+  @apply w-full text-xl font-semibold;
 }
 h4 {
-  @apply w-full font-bold;
+  @apply w-full font-semibold;
 }
 table {
   @apply border-y-2 border-black dark:border-zinc-50;

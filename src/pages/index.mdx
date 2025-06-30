@@ -2,7 +2,7 @@
 layout: ../layouts/Layout.astro
 title: 'Enabling 20-DoF ByteDexter Hand Dexterous Teleoperation through Human Motion Retargeting'
 description: Simple project page template for your research paper, built with Astro and Tailwind CSS
-favicon: favicon.svg
+favicon: logo.png
 thumbnail: screenshot-light.png
 ---
 
@@ -13,19 +13,25 @@ import SmallCaps from "../components/SmallCaps.astro";
 import Figure from "../components/Figure.astro";
 import Image from "../components/Image.astro";
 import TwoColumns from "../components/TwoColumns.astro";
+import TwoColumnsVideo from "../components/TwoColumnsVideo.astro";
 import YouTubeVideo from "../components/YouTubeVideo.astro";
 import LaTeX from "../components/LaTeX.astro";
 
 import { ImageComparison } from "../components/ImageComparison.tsx";
 
-import hardware from "../assets/hardware.mp4";
-import retarget from "../assets/retarget.mp4";
 import teleoperation_system from "../assets/teleoperation_system.png";
 import hand_retargeting from "../assets/hand_retargeting.png";
 import experiment from "../assets/experiment.png";
 import long_horizon from "../assets/long_horizon.png";
 import hand from "../assets/hand.png";
 
+import tech_report1 from "../assets/ByteDexter-Tech-Report-1.mp4";
+import tech_report2 from "../assets/ByteDexter-Tech-Report-2.mp4";
+import tech_report3 from "../assets/ByteDexter-Tech-Report-3.mp4";
+import tech_report4 from "../assets/ByteDexter-Tech-Report-4.mp4";
+import tech_report5 from "../assets/ByteDexter-Tech-Report-5.mp4";
+import tech_report6 from "../assets/ByteDexter-Tech-Report-6.mp4";
+import tech_report7 from "../assets/ByteDexter-Tech-Report-7.mp4";
 
 import CodeBlock from "../components/CodeBlock.astro";
 import Table from "../components/Table.astro";
@@ -36,7 +42,7 @@ export const components = {pre: CodeBlock, table: Table}
   authors={[
     {
       name: "ByteDance Seed",
-      institution: "ByteDance",
+      institution: "",
       notes: [],
     },
   ]}
@@ -48,11 +54,6 @@ export const components = {pre: CodeBlock, table: Table}
       icon: "ri:file-pdf-2-line",
     },
     {
-      name: "Code",
-      url: "https://github.com/RomanHauksson/academic-project-astro-template",
-      icon: "ri:github-line",
-    },
-    {
       name: "arXiv",
       url: "https://github.com/RomanHauksson/academic-project-astro-template",
       icon: "academicons:arxiv",
@@ -60,27 +61,72 @@ export const components = {pre: CodeBlock, table: Table}
   ]}
   />
 
-<Video source={hardware} />
-
 <HighlightedSection>
 
 ## Abstract
 
-Replicating human-level dexterity remains a fundamental robotics challenge, requiring integrated solutions from mechatronic design to the control of high degree-of-freedom (DoF) robotic hands. While imitation learning shows promise in transferring human dexterity to robots, the efficacy of trained policies relies on the quality of human demonstration data. We bridge this gap with a hand-arm teleoperation system featuring: (1) a 20-DoF linkage-driven anthropomorphic robotic hand  for biomimetic dexterity, and (2) an optimization-based motion retargeting for real-time, high-fidelity reproduction of intricate human hand motions and seamless hand–arm coordination. We validate the system via extensive empirical evaluations, including dexterous in-hand manipulation tasks and a long-horizon task requiring the organization of a cluttered makeup table randomly populated with nine objects. Experimental results demonstrate its intuitive teleoperation interface with real-time control and the ability to generate high-quality demonstration data. Please refer to the accompanying video for further details.
+<div class="text-justify">
+Replicating human-level dexterity remains a fundamental robotics challenge, requiring integrated solutions 
+from mechatronic design to the control of high degree-of-freedom (DoF) robotic hands. While imitation 
+learning shows promise in transferring human dexterity to robots, the efficacy of trained policies 
+relies on the quality of human demonstration data. We bridge this gap with a hand-arm teleoperation 
+system featuring: (1) a 20-DoF linkage-driven anthropomorphic robotic hand  for biomimetic dexterity, 
+and (2) an optimization-based motion retargeting for real-time, high-fidelity reproduction of intricate 
+human hand motions and seamless hand–arm coordination. We validate the system via extensive empirical 
+evaluations, including dexterous in-hand manipulation tasks and a long-horizon task requiring the 
+organization of a cluttered makeup table randomly populated with nine objects. Experimental results 
+demonstrate its intuitive teleoperation interface with real-time control and the ability to generate 
+high-quality demonstration data. Please refer to the accompanying video for further details.
+</div>
 
 </HighlightedSection>
 
 ## Method
 
-Our hand-arm teleoperation system achieves dexterous in-hand manipulation, including multi-object grasping, rotation, and regrasping. It also successfully manages grasping of various cosmetic items during a long-horizon cluttered-table organization task.
+### ByteDexter Hand Design
 
-<Video source={retarget} />
+<div class="text-justify">
+ByteDexter is an anthropomorphic dexterous hand entirely designed and developed by ByteDance Seed.
+It incorporates a total of 20 degrees of freedom (DoF), with 15 fully actuated joints. 
+The high integration of all motors and driving boards within the palm enables ByteDexter to 
+operate as a standalone hand module. Both fingertips and palm have been meticulously designed to 
+facilitate the integration of tactile sensors.
+</div>
 
-### Robotic Hand-Arm Teleoperation System
+<div style="height: 0.2rem;"></div>
 
 <div>
+    <h3 class="text-center">The 20-DoF ByteDexter Hand</h3>
+    <Video source={tech_report1} />
+</div>
 
-ByteDexter’s four long fingers adopt the parallel–serial topology of [ILDA hand](https://example.com/paper.pdf), 
+<TwoColumnsVideo>
+  <div slot="left">
+    <span slot="caption">Demonstration of Finger Dexterity</span>
+    <Video source={tech_report2} />
+  </div>
+  <div slot="right">
+    <span slot="caption">Teleoperation via Data Glove</span>
+    <Video source={tech_report3} />
+  </div>
+</TwoColumnsVideo>
+
+<TwoColumnsVideo>
+  <div slot="left">
+    <span slot="caption">Grasping of Daily Objects</span>
+    <Video source={tech_report4} />
+  </div>
+  <div slot="right">
+    <span slot="caption">In-Hand Manipulation</span>
+    <Video source={tech_report5} />
+  </div>
+</TwoColumnsVideo>
+
+
+<div style="height: 0.5rem;"></div>
+
+<div class="text-justify">
+ByteDexter’s four long fingers adopt the parallel–serial topology of [ILDA hand](https://www.nature.com/articles/s41467-021-27261-0), 
 but this design proves unsuitable for the thumb. Two DoFs at the MCP joint are coupled by the parallel linkage. As MCP flexion increases, 
 abduction/adduction range diminishes progressively—reaching zero in full flexion. Additionally, implementing thumb abduction/adduction with 
 two actuators mounted perpendicular to the palm unavoidably thickens the palm profile, compromising compactness. To address these limitations, 
@@ -89,6 +135,8 @@ and PIP flexion across the thumb's MCP entire abduction (<LaTeX inline formula="
 
 </div>
 
+<div style="height: 0.5rem;"></div>
+
 <Figure>
   <Image slot="figure" source={hand} altText="The proposed hand-arm teleoperation system." class="w-full" />
   <span slot="caption">The ByteDexter hand. (a) robotic finger with 2-DoF MCP joint, 1-DoF PIP
@@ -96,24 +144,36 @@ joint, with a passively actuated 1-DoF DIP joint, (b) the thumb’s kinematic st
 with thumb motion from zero abduction to its full range.</span>
 </Figure>
 
-The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove’s back via a custom holder to ensure synchronous tracking of wrist and finger movements. This setup delivers an intuitive, natural interface that enhances hand–arm coordination during teleoperation. On the robotic side, the ByteDexter anthropomorphic hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm’s seventh joint. The operators’ wrist poses from the Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands for the ByteDexter hand.
+<div style="height: 0.5rem;"></div>
+
+### Robotic Hand-Arm Teleoperation System
+
+<div class="text-justify">
+Our hand-arm teleoperation system achieves dexterous in-hand manipulation, including multi-object grasping, rotation, and regrasping. It also successfully manages grasping of various cosmetic items during a long-horizon cluttered-table organization task. The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove’s back via a custom holder to ensure synchronous tracking of wrist and finger movements. This setup delivers an intuitive, natural interface that enhances hand–arm coordination during teleoperation. On the robotic side, the ByteDexter anthropomorphic hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm’s seventh joint. The operators’ wrist poses from the Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands for the ByteDexter hand.
+</div>
+
+<div style="height: 0.5rem;"></div>
 
 <Figure>
   <Image slot="figure" source={teleoperation_system} altText="The proposed hand-arm teleoperation system." class="w-full" />
   <span slot="caption">The proposed hand-arm teleoperation system.</span>
 </Figure>
 
+<div style="height: 0.5rem;"></div>
+
 ### Hand Motion Retargeting
 
-<div>
+<div class="text-justify">
 We retarget human hand pose data obtained from the Manus Glove into joint position references of the ByteDexter hand by solving an optimization problem that minimizes the difference between corresponding keyvectors in the robotic and human hand. 
 The finger design of ByteDexter adopts anatomically proportional dimensions scaled to human finger lengths. However, the palm size is constrained to prioritize functional integration of motors, embedded boards, and leadscrews, resulting in a non-anthropomorphic structure that introduces morphological discrepancies with human palm anatomy. 
 To address this non-anatomical factor, our approach diverges from prior methods using fingertip-to-wrist keyvectors; instead, we compute keyvectors from each fingertip to its own MCP joint. 
 A keyvector is the 3D vector between a pair of key points, pointing from the origin of one coordinate frame to the other, expressed in the robot hand’s base frame. 
 </div>
 
+<div style="height: 0.5rem;"></div>
+
 <TwoColumns>
-  <div slot="left">
+  <div class="text-justify" slot="left">
     Right figure shows only the index-finger keyvectors: from the MCP joint to the fingertip, from the fingertip to the thumb tip, from the PIP joint to
     the PIP joints of the middle and ring fingers, and from PIP joint to the pinky’s DIP joint. Iterating this process from the thumb to pinky and eliminating duplicates results in 15
     unique keyvectors. Incorporating these keyvectors into the optimization captures the majority of the grasping
@@ -127,26 +187,31 @@ A keyvector is the 3D vector between a pair of key points, pointing from the ori
   </Figure>
 </TwoColumns>
 
+<div style="height: 0.5rem;"></div>
+
 ## Results
 
 ### In-hand Manipulation Results
 
-<div>
+<div class="text-justify">
 We evaluate three canonical in-hand manipulation primitives—(i) regrasping to translate objects between
 fingers, (ii) sliding objects relative to the palm, and (iii) rotating objects or their components, and instantiate
 them in four benchmark tasks: (1) regrasping a bottle from a precision to a power grasp; (2) multi-object
 grasping; (3) lid unscrewing; and (4) push-to-open lids.
 </div>
 
-<Figure>
-  <Image slot="figure" source={experiment} altText="In-hand manipulation tasks." class="w-full" />
-  <span slot="caption">In-hand manipulation tasks.</span>
-</Figure>
+<div style="height: 0.2rem;"></div>
 
+<div>
+    <h3 class="text-center">In-hand Manipulation Tasks</h3>
+    <Video source={tech_report6} />
+</div>
+
+<div style="height: 0.5rem;"></div>
 
 ### Long-Horizon Teleoperation Results
 
-<div>
+<div class="text-justify">
 We evaluated the system’s long-horizon teleoperation capabilities through a table organization task involving a
 cluttered workspace populated with randomly arranged cosmetic and skincare items, including serum bottles,
 cream tubes, lipsticks, brushes, and powder palettes. A multi-drawer makeup organizer was placed adjacent
@@ -156,18 +221,25 @@ managed diverse geometries and recovered from grasp slippage through real-time a
 robust performance in unstructured environments.
 </div>
 
-<Figure>
-  <Image slot="figure" source={long_horizon} altText="Our hand-arm teleoperation system successfully grasps various items during a long-horizon table organization task." class="w-full" />
-  <span slot="caption">Our hand-arm teleoperation system successfully grasps various items during a long-horizon table organization task.</span>
-</Figure>
+<div style="height: 0.2rem;"></div>
+
+<div>
+    <h3 class="text-center">Long-Horizon Table Organization Task</h3>
+    <Video source={tech_report7} />
+</div>
+
+<div style="height: 0.5rem;"></div>
 
 ## Citation
 
 ```bibtex
-@misc{bytedance2025bdex,
-  author = "{ByteDance Seed}",
-  title = "Enabling 20-DoF ByteDexter Hand Dexterous Teleoperation through Human Motion Retargeting",
-  year = "2025",
-  howpublished = "\url{}",
+@article{bytedance2025byteDexter,
+  author       = "{ByteDance Seed}",
+  title        = "{Enabling 20-DoF ByteDexter Hand Dexterous Teleoperation through Human Motion Retargeting}",
+  year         = {2025},
+  archivePrefix = {arXiv},
+  eprint       = {arXiv:submit/0000000},
+  primaryClass = {cs.RO},
+  note         = {arXiv preprint},
 }
 ```
