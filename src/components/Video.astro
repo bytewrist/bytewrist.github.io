@@ -13,8 +13,8 @@ const { source } = Astro.props;
     controls
     muted
     loop
-    playsinline
+    playsinline preload="none" 
   >
-    <source src={source} type="video/mp4" />
+    <source src={source} type="video/webm" />
   </video>
 </div>
