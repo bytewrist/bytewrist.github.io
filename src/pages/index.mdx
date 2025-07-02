@@ -1,12 +1,13 @@
 ---
 layout: ../layouts/Layout.astro
-title: 'Enabling 20-DoF ByteDexter Hand Dexterous Teleoperation through Human Motion Retargeting'
+title: 'Dexterous Teleoperation of 20-DoF ByteDexter Hand <br> via Human Motion Retargeting'
 description: Simple project page template for your research paper, built with Astro and Tailwind CSS
 favicon: logo.png
 thumbnail: screenshot-light.png
 ---
 
-import Header from "../components/Header.astro";
+import Header from "../components/Header.astro"; 
+import VideoHeader from "../components/VideoHeader.astro";
 import Video from "../components/Video.astro";
 import HighlightedSection from "../components/HighlightedSection.astro";
 import HighlightedSectionResult from "../components/HighlightedSection_result.astro";
@@ -25,7 +26,7 @@ import teleoperation_system from "../assets/teleoperation_system.png";
 import hand_retargeting from "../assets/hand_retargeting.png";
 import experiment from "../assets/experiment.png";
 import long_horizon from "../assets/long_horizon.png";
-import hand from "../assets/hand.png";
+import hand from "../assets/hand_new.png";
 
 import tech_report1 from "../assets/ByteDexter-Tech-Report-1-1080.mp4";
 import tech_report2 from "../assets/ByteDexter-Tech-Report-2-1080.mp4";
@@ -37,32 +38,86 @@ import tech_report7 from "../assets/ByteDexter-Tech-Report-7-1080.mp4";
 
 import CodeBlock from "../components/CodeBlock.astro";
 import Table from "../components/Table.astro";
-export const components = {pre: CodeBlock, table: Table}
 
-<Header
+<VideoHeader
   title={frontmatter.title}
   authors={[
     {
-      name: "ByteDance Seed",
-      institution: "",
+      name: "Guangzeng Chen,",
+      notes: [],
+    },
+    {
+      name: "Zhongren Cui,",
+      notes: [],
+    },
+    {
+      name: "Min Du,",
+      notes: [],
+    },
+    {
+      name: "Yang Gou,",
+      notes: [],
+    },
+    {
+      name: "Zhigang Han,",
+      notes: [],
+    },
+    {
+      name: "Junkai Hu,",
+      notes: [],
+    },
+    {
+      name: "Liqun Huang,",
+      notes: [],
+    },
+    {
+      name: "Hang Li,",
+      notes: [],
+    },
+    {
+      name: "Hao Niu,",
+      notes: [],
+    },
+    {
+      name: "Zeyu Ren,",
+      notes: [],
+    },
+    {
+      name: "Ruoshi Wen,",
+      notes: [],
+    },
+    {
+      name: "Wei Xu,",
+      notes: [],
+    },
+    {
+      name: "Haoxiang Zhang,",
+      notes: [],
+    },
+    {
+      name: "Jiajun Zhang,",
+      notes: [],
+    },
+    {
+      name: "Zhengming Zhu",
       notes: [],
     },
   ]}
-  conference=""
+  conference="ByteDance Seed"
   links={[
     {
       name: "Paper",
-      url: "https://github.com/RomanHauksson/academic-project-astro-template",
+      url: "/ByteDexter_Tech_Report_2025.pdf",
       icon: "ri:file-pdf-2-line",
     },
     {
       name: "arXiv",
-      url: "https://github.com/RomanHauksson/academic-project-astro-template",
+      url: "https://seed.bytedance.com/en/",
       icon: "academicons:arxiv",
     }
   ]}
-  />
-<Video source={tech_report1} />
+  source={tech_report1}
+/>
 
 <HighlightedSection>
 
@@ -79,108 +134,77 @@ human hand motions and seamless hand–arm coordination. We validate the system 
 evaluations, including dexterous in-hand manipulation tasks and a long-horizon task requiring the 
 organization of a cluttered makeup table randomly populated with nine objects. Experimental results 
 demonstrate its intuitive teleoperation interface with real-time control and the ability to generate 
-high-quality demonstration data. Please refer to the accompanying video for further details.
+high-quality demonstration data.
 </div>
 
 </HighlightedSection>
 
+<HighlightedSectionResult>
 ## Method
 
 ### ByteDexter Hand Design
 
 <div class="text-justify">
-ByteDexter is an anthropomorphic dexterous hand entirely designed and developed by ByteDance Seed.
-It incorporates a total of 20 degrees of freedom (DoF), with 15 fully actuated joints. 
-The high integration of all motors and driving boards within the palm enables ByteDexter to 
-operate as a standalone hand module. Both fingertips and palm have been meticulously designed to 
-facilitate the integration of tactile sensors.
+ByteDexter is an anthropomorphic dexterous hand developed by ByteDance Seed. It features 20 degrees of freedom (DoF), with 15 actuated DoF. The seamless integration of 15 motors and embedded boards within the palm enables ByteDexter to function as a standalone hand module. Both the fingertips and palm feature dedicated designs to facilitate the integration of tactile sensors.
 </div>
 
-<div style="height: 0.2rem;"></div>
-
 <TwoColumnsVideo>
-  <div slot="left">
-    <span slot="caption">Demonstration of Finger Dexterity</span>
+  <div slot="left" style="text-align: center;">
     <Video source={tech_report2} />
+    <span slot="caption" style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Demonstration of Finger Dexterity</span>
   </div>
-  <div slot="right">
-    <span slot="caption">Teleoperation via Data Glove</span>
+  <div slot="right" style="text-align: center;">
     <Video source={tech_report3} />
+    <span slot="caption" style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Teleoperation via Data Glove</span>
   </div>
 </TwoColumnsVideo>
 
 <TwoColumnsVideo>
-  <div slot="left">
-    <span slot="caption">Grasping of Daily Objects</span>
+  <div slot="left" style="text-align: center;">
     <Video source={tech_report4} />
+    <span slot="caption" style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Grasping of Daily Objects</span>
   </div>
-  <div slot="right">
-    <span slot="caption">In-Hand Manipulation</span>
+  <div slot="right" style="text-align: center;">
     <Video source={tech_report5} />
+    <span slot="caption" style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">In-Hand Manipulation</span>
   </div>
 </TwoColumnsVideo>
-
-
-<div style="height: 0.5rem;"></div>
 
 <div class="text-justify">
-ByteDexter’s four long fingers adopt the parallel–serial topology of [ILDA hand](https://www.nature.com/articles/s41467-021-27261-0), 
-but this design proves unsuitable for the thumb. Two DoFs at the MCP joint are coupled by the parallel linkage. As MCP flexion increases, 
-abduction/adduction range diminishes progressively—reaching zero in full flexion. Additionally, implementing thumb abduction/adduction with 
-two actuators mounted perpendicular to the palm unavoidably thickens the palm profile, compromising compactness. To address these limitations, 
-we developed a thumb kinematic structure that achieves decoupled, human‐like thumb mobility for advanced grasping and manipulation, allowing full-range MCP 
-and PIP flexion across the thumb's MCP entire abduction (<LaTeX inline formula="-4^\circ \;\text{to}\; 90^\circ" />) span.
-
+  ByteDexter's finger design adopts a parallel-serial kinematic structure: a 2-DoF MCP joint, 1-DoF PIP joint, and passively driven 1-DoF DIP joint replicate the kinematics of human index/middle/ring/pinky fingers. Its novel thumb design decouples the MCP joint's two DoFs, expanding the workspace and enhancing precision grasping performance.
 </div>
-
-<div style="height: 0.5rem;"></div>
 
 <Figure>
   <Image slot="figure" source={hand} altText="The proposed hand-arm teleoperation system." class="w-full" />
   <span slot="caption">The ByteDexter hand. (a) robotic finger with 2-DoF MCP joint, 1-DoF PIP
 joint, with a passively actuated 1-DoF DIP joint, (b) the thumb’s kinematic structure, and (c) ByteDexter hand
-with thumb motion from zero abduction to its full range.</span>
+with thumb abduction/adduction.</span>
 </Figure>
-
-<div style="height: 0.5rem;"></div>
-
+</HighlightedSectionResult>
 <HighlightedSection>
-### Robotic Hand-Arm Teleoperation System
 
+### Hand-Arm Teleoperation System
 <div class="text-justify">
-Our hand-arm teleoperation system achieves dexterous in-hand manipulation, including multi-object grasping, rotation, and regrasping. It also successfully manages grasping of various cosmetic items during a long-horizon cluttered-table organization task. The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove’s back via a custom holder to ensure synchronous tracking of wrist and finger movements. This setup delivers an intuitive, natural interface that enhances hand–arm coordination during teleoperation. On the robotic side, the ByteDexter anthropomorphic hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm’s seventh joint. The operators’ wrist poses from the Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands for the ByteDexter hand.
+The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove’s back via a custom holder to ensure synchronous tracking of wrist and finger movements. On the robotic side, the ByteDexter anthropomorphic hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm’s seventh joint. The operators’ wrist poses from the Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands for the ByteDexter hand.
 </div>
-
-<div style="height: 0.5rem;"></div>
 
 <Figure>
   <Image slot="figure" source={teleoperation_system} altText="The proposed hand-arm teleoperation system." class="w-full" />
-  <span slot="caption">The proposed hand-arm teleoperation system.</span>
+  <span slot="caption">The hand-arm teleoperation system overview.</span>
 </Figure>
-
-<div style="height: 0.5rem;"></div>
 
 </HighlightedSection>
 
+<HighlightedSectionResult>
 ### Hand Motion Retargeting
 
 <div class="text-justify">
-We retarget human hand pose data obtained from the Manus Glove into joint position references of the ByteDexter hand by solving an optimization problem that minimizes the difference between corresponding keyvectors in the robotic and human hand. 
-The finger design of ByteDexter adopts anatomically proportional dimensions scaled to human finger lengths. However, the palm size is constrained to prioritize functional integration of motors, embedded boards, and leadscrews, resulting in a non-anthropomorphic structure that introduces morphological discrepancies with human palm anatomy. 
-To address this non-anatomical factor, our approach diverges from prior methods using fingertip-to-wrist keyvectors; instead, we compute keyvectors from each fingertip to its own MCP joint. 
-A keyvector is the 3D vector between a pair of key points, pointing from the origin of one coordinate frame to the other, expressed in the robot hand’s base frame. 
+  We retarget human hand pose data obtained from the Manus Glove into joint position references of the ByteDexter hand by solving an optimization problem that minimizes the difference between corresponding keyvectors in the robotic and human hand. 
 </div>
-
-<div style="height: 0.5rem;"></div>
 
 <TwoColumns>
   <div class="text-justify" slot="left">
-    Right figure shows only the index-finger keyvectors: from the MCP joint to the fingertip, from the fingertip to the thumb tip, from the PIP joint to
-    the PIP joints of the middle and ring fingers, and from PIP joint to the pinky’s DIP joint. Iterating this process from the thumb to pinky and eliminating duplicates results in 15
-    unique keyvectors. Incorporating these keyvectors into the optimization captures the majority of the grasping
-    types: for pinch grasping, minimizing inter-finger distances aligns robotic
-    and human hand poses to reduce operator strain, whereas for power grasping, preserving fingertip-to-palm
-    distances are prioritized.
+      The right figure shows only the index-finger keyvectors for illustration. Iterating this process from the thumb to pinky and eliminating duplicates results in 15 unique keyvectors. Incorporating these keyvectors into optimization captures the majority of the grasping types: for pinch grasping, minimizing inter-finger distances aligns robotic and human hand poses to reduce operator strain; for power grasping, preserving fingertip-to-palm distances are prioritized.
   </div>
   <Figure slot="right">
     <Image slot="figure" source={hand_retargeting} altText="Hand keypoint vectors." class="w-full" />
@@ -188,9 +212,9 @@ A keyvector is the 3D vector between a pair of key points, pointing from the ori
   </Figure>
 </TwoColumns>
 
-<div style="height: 0.5rem;"></div>
+</HighlightedSectionResult>
 
-<HighlightedSectionResult>
+<HighlightedSection>
 ## Results
 
 ### In-hand Manipulation Results
@@ -202,48 +226,44 @@ them in four benchmark tasks: (1) regrasping a bottle from a precision to a powe
 grasping; (3) lid unscrewing; and (4) push-to-open lids.
 </div>
 
-<div style="height: 0.2rem;"></div>
-
 <div>
-    <h3 class="text-center">In-hand Manipulation Tasks</h3>
     <Video source={tech_report6} />
+    <h3 style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
+        In-hand Manipulation Tasks
+    </h3>
 </div>
 
-<div style="height: 0.5rem;"></div>
+</HighlightedSection>
 
-</HighlightedSectionResult>
-
+<HighlightedSectionResult>
 ### Long-Horizon Teleoperation Results
 
 <div class="text-justify">
-We evaluated the system’s long-horizon teleoperation capabilities through a table organization task involving a
-cluttered workspace populated with randomly arranged cosmetic and skincare items, including serum bottles,
-cream tubes, lipsticks, brushes, and powder palettes. A multi-drawer makeup organizer was placed adjacent
-to the clutter, requiring the robotic hand-arm system to retrieve objects and place these in the organizer,
-additionally, insert items into a drawer. The system successfully
-managed diverse geometries and recovered from grasp slippage through real-time adjustments, demonstrating
-robust performance in unstructured environments.
+  To assess long-horizon teleoperation capabilities, we evaluated the system using a table organization task. The scenario featured a cluttered workspace filled with randomly arranged cosmetic and skincare items alongside a multi-drawer organizer. This required the robotic hand-arm system to:  (1) Retrieve objects from the table; (2) Place items into designated organizer compartments; and (3) Successfully open the drawer and insert objects into it.
 </div>
-
-<div style="height: 0.2rem;"></div>
 
 <div>
-    <h3 class="text-center">Long-Horizon Table Organization Task</h3>
     <Video source={tech_report7} />
+    <h3 style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
+        Long-Horizon Table Organization Task
+    </h3>
 </div>
 
-<div style="height: 0.5rem;"></div>
+</HighlightedSectionResult>
 
 ## Citation
 
+<div class="text-sm mt-6" style="font-family: 'Open Sans', sans-serif; color: #333; line-height: 1.4; padding: 15px; background-color: #fffff; border-left: 4px solid #007BFF; margin-bottom: 20px;">
 ```bibtex
 @article{bytedance2025byteDexter,
-  author       = "{ByteDance Seed}",
-  title        = "{Enabling 20-DoF ByteDexter Hand Dexterous Teleoperation through Human Motion Retargeting}",
-  year         = {2025},
+  author        = "{Guangzeng Chen, Zhongren Cui, Min Du, Yang Gou, Zhigang Han,
+                   Junkai Hu, Liqun Huang, Hang Li, Hao Niu, Zeyu Ren, Ruoshi Wen, 
+                   Wei Xu, Haoxiang Zhang, Jiajun Zhang, Zhengming Zhu}",
+  title         = "{Dexterous Teleoperation of 20-DoF ByteDexter Hand via Human Motion Retargeting}",
+  year          = {2025},
   archivePrefix = {arXiv},
-  eprint       = {arXiv:submit/0000000},
-  primaryClass = {cs.RO},
-  note         = {arXiv preprint},
+  eprint        = {arXiv:submit/0000000},
+  primaryClass  = {cs.RO},
 }
 ```
+</div>

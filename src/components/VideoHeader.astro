@@ -1,0 +1,63 @@
+---
+import type { Author, Note, Link } from "../types/types";
+import Links from "./Links.astro";
+import Authors from "./Authors.astro";
+import Notes from "./Notes.astro";
+
+interface Props {
+  title: string;
+  authors: Author[];
+  conference?: string;
+  notes?: Note[];
+  links: Link[];
+  source: string;
+}
+
+const { title, authors, conference, notes, links, source } = Astro.props as Props;
+---
+
+<header class="relative flex flex-col gap-6 items-center overflow-hidden min-h-screen !w-full !mx-0 !px-0 !pb-0">
+  <!-- Video Background -->
+  <div class="absolute inset-0 z-0">
+    <video
+    class="absolute !w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src={source} type="video/mp4" />
+  </video>
+    <!-- Semi-transparent overlay for better text readability -->
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <!-- Content overlay -->
+  <div class="relative z-10 flex flex-col gap-12 items-center text-white px-4 pt-64 pb-0">
+    <h1 class="text-6xl md:text-6xl font-semibold text-white max-w-12xl mx-auto" set:html={title}></h1>
+    <div class="flex flex-col gap-12 items-center">
+      <Authors authors={authors} />
+      {conference && <p class="text-3xl text-center">{conference}</p>}
+      {notes && <div class="text-xl"><Notes notes={notes} /></div>}
+      {links && <div class="text-xl"><Links links={links} /></div>}
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    min-height: 100vh;
+  }
+
+  /* Ensure Authors component text is white */
+  h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .authors {
+    color: white;
+    font-size: 1.75rem;
+  }
+</style>
