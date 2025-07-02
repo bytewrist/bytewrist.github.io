@@ -8,13 +8,16 @@ const { source } = Astro.props;
 
 <div class="w-full flex justify-center">
   <video
-    class="w-full h-auto aspect-video rounded-lg"
-    autoplay
-    controls
-    muted
-    loop
-    playsinline preload="none" 
-  >
+      class="w-full h-auto aspect-video rounded-lg"
+      autoplay
+      controls
+      muted
+      loop
+      playsinline preload="none"
+      controlslist="nodownload nofullscreen"
+      disablePictureInPicture
+      oncontextmenu="return false;"
+    >
     <source src={source} type="video/mp4" />
   </video>
 </div>
