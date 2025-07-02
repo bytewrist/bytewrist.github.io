@@ -7,7 +7,7 @@ export default {
 	plugins: [require('@tailwindcss/typography'),],
 	theme: {
 		fontFamily: {
-			'sans': ['Noto Sans']
+			'sans': ['Open Sans']
 		}
 	}
 }
