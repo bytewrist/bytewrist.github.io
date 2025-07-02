@@ -151,33 +151,33 @@ ByteDexter is an anthropomorphic dexterous hand developed by ByteDance Seed. It 
 <TwoColumnsVideo>
   <div slot="left" style="text-align: center;">
     <Video source={tech_report2} />
-    <span slot="caption" style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Demonstration of Finger Dexterity</span>
+    <span slot="caption" style="font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Finger Dexterity Demonstration</span>
   </div>
   <div slot="right" style="text-align: center;">
     <Video source={tech_report3} />
-    <span slot="caption" style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Teleoperation via Data Glove</span>
+    <span slot="caption" style="font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Teleoperation via Data Glove</span>
   </div>
 </TwoColumnsVideo>
 
 <TwoColumnsVideo>
   <div slot="left" style="text-align: center;">
     <Video source={tech_report4} />
-    <span slot="caption" style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Grasping of Daily Objects</span>
+    <span slot="caption" style="font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Grasping of Daily Objects</span>
   </div>
   <div slot="right" style="text-align: center;">
     <Video source={tech_report5} />
-    <span slot="caption" style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">In-Hand Manipulation</span>
+    <span slot="caption" style="font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">In-Hand Manipulation</span>
   </div>
 </TwoColumnsVideo>
 
 <div class="text-justify">
-  ByteDexter's finger design adopts a parallel-serial kinematic structure: a 2-DoF MCP joint, 1-DoF PIP joint, and passively driven 1-DoF DIP joint replicate the kinematics of human index/middle/ring/pinky fingers. Its novel thumb design decouples the MCP joint's two DoFs, expanding the workspace and enhancing precision grasping performance.
+  ByteDexter's finger design adopts a parallel-serial kinematic structure: a 2-DoF MCP joint, 1-DoF PIP joint, and passively driven 1-DoF DIP joint replicate the kinematics of human index, middle, ring, and pinky fingers. Its novel thumb design decouples the MCP joint's two DoFs, expanding the workspace and enhancing precision grasping performance.
 </div>
 
 <Figure>
   <Image slot="figure" source={hand} altText="The proposed hand-arm teleoperation system." class="w-full" />
   <span slot="caption">The ByteDexter hand. (a) robotic finger with 2-DoF MCP joint, 1-DoF PIP
-joint, with a passively actuated 1-DoF DIP joint, (b) the thumb’s kinematic structure, and (c) ByteDexter hand
+joint, with a passively actuated 1-DoF DIP joint, (b) the thumb's kinematic structure, and (c) ByteDexter hand
 with thumb abduction/adduction.</span>
 </Figure>
 </HighlightedSectionResult>
@@ -185,7 +185,7 @@ with thumb abduction/adduction.</span>
 
 ### Hand-Arm Teleoperation System
 <div class="text-justify">
-The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove’s back via a custom holder to ensure synchronous tracking of wrist and finger movements. On the robotic side, the ByteDexter anthropomorphic hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm’s seventh joint. The operators’ wrist poses from the Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands for the ByteDexter hand.
+The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove's back via a custom holder to ensure synchronous tracking of wrist and finger movements. On the robotic side, the ByteDexter anthropomorphic hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm's seventh joint. The operators' wrist poses from the Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands for the ByteDexter hand.
 </div>
 
 <Figure>
@@ -228,7 +228,7 @@ grasping; (3) lid unscrewing; and (4) push-to-open lids.
 
 <div>
     <Video source={tech_report6} />
-    <h3 style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
+    <h3 style="font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
         In-hand Manipulation Tasks
     </h3>
 </div>
@@ -244,7 +244,7 @@ grasping; (3) lid unscrewing; and (4) push-to-open lids.
 
 <div>
     <Video source={tech_report7} />
-    <h3 style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
+    <h3 style="font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
         Long-Horizon Table Organization Task
     </h3>
 </div>
@@ -253,17 +253,13 @@ grasping; (3) lid unscrewing; and (4) push-to-open lids.
 
 ## Citation
 
-<div class="text-sm mt-6" style="font-family: 'Open Sans', sans-serif; color: #333; line-height: 1.4; padding: 15px; background-color: #fffff; border-left: 4px solid #007BFF; margin-bottom: 20px;">
+<div class="text-sm mt-6 md:max-w-3xl mx-auto !max-w-[58rem]" style="font-family: 'Source Sans 3', sans-serif; color: #333; line-height: 1.2; padding: 10px; background-color: #fffff; margin-bottom: 20px;">
 ```bibtex
 @article{bytedance2025byteDexter,
-  author        = "{Guangzeng Chen, Zhongren Cui, Min Du, Yang Gou, Zhigang Han,
-                   Junkai Hu, Liqun Huang, Hang Li, Hao Niu, Zeyu Ren, Ruoshi Wen, 
-                   Wei Xu, Haoxiang Zhang, Jiajun Zhang, Zhengming Zhu}",
-  title         = "{Dexterous Teleoperation of 20-DoF ByteDexter Hand via Human Motion Retargeting}",
-  year          = {2025},
-  archivePrefix = {arXiv},
-  eprint        = {arXiv:submit/0000000},
-  primaryClass  = {cs.RO},
+  author       = "Chen, Guangzeng and Cui, Zhongren and Du, Min and Gou, Yang and Han, Zhigang and Hu, Junkai and Huang, Liqun and Li, Hang and Niu, Hao and Ren, Zeyu and Wen, Ruoshi and Xu, Wei and Zhang, Haoxiang and Zhang, Jiajun and Zhu, Zhengming",
+  title        = "Dexterous Teleoperation of 20-DoF ByteDexter Hand via Human Motion Retargeting",
+  journal={arXiv preprint arXiv:xxx},
+  year={2025}
 }
 ```
 </div>

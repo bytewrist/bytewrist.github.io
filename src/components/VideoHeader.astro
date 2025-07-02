@@ -33,9 +33,9 @@ const { title, authors, conference, notes, links, source } = Astro.props as Prop
   </div>
 
   <!-- Content overlay -->
-  <div class="relative z-10 flex flex-col gap-12 items-center text-white px-4 pt-64 pb-0">
+  <div class="relative z-10 flex flex-col gap-10 items-center text-white px-4 pt-64 pb-10">
     <h1 class="text-6xl md:text-6xl font-semibold text-white max-w-12xl mx-auto" set:html={title}></h1>
-    <div class="flex flex-col gap-12 items-center">
+    <div class="flex flex-col gap-10 items-center">
       <Authors authors={authors} />
       {conference && <p class="text-3xl text-center">{conference}</p>}
       {notes && <div class="text-xl"><Notes notes={notes} /></div>}
@@ -51,7 +51,7 @@ const { title, authors, conference, notes, links, source } = Astro.props as Prop
 
   /* Ensure Authors component text is white */
   h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     letter-spacing: 0.01em;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
