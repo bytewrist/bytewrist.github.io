@@ -43,6 +43,14 @@ import Table from "../components/Table.astro";
   title={frontmatter.title}
   authors={[
     {
+      name: "Ruoshi Wen*,",
+      notes: [],
+    },
+    {
+      name: "Jiajun Zhang*,",
+      notes: [],
+    },
+    {
       name: "Guangzeng Chen,",
       notes: [],
     },
@@ -79,14 +87,6 @@ import Table from "../components/Table.astro";
       notes: [],
     },
     {
-      name: "Zeyu Ren,",
-      notes: [],
-    },
-    {
-      name: "Ruoshi Wen,",
-      notes: [],
-    },
-    {
       name: "Wei Xu,",
       notes: [],
     },
@@ -95,11 +95,11 @@ import Table from "../components/Table.astro";
       notes: [],
     },
     {
-      name: "Jiajun Zhang,",
+      name: "Zhengming Zhu",
       notes: [],
     },
     {
-      name: "Zhengming Zhu",
+      name: "Zeyu Ren,",
       notes: [],
     },
   ]}
@@ -150,7 +150,7 @@ high-quality demonstration data.
 ### ByteDexter Hand Design
 
 <div class="text-justify">
-ByteDexter is an anthropomorphic dexterous hand developed by ByteDance Seed. It features 20 degrees of freedom (DoF), with 15 actuated DoF. The seamless integration of 15 motors and embedded boards within the palm enables ByteDexter to function as a standalone hand module. Both the fingertips and palm feature dedicated designs to facilitate the integration of tactile sensors.
+ByteDexter is an anthropomorphic dexterous hand developed by ByteDance Seed. It features 20 degrees of freedom (DoF), with 15 fully actuated DoFs. The seamless integration of 15 motors and embedded boards within the palm enables ByteDexter to function as a standalone hand module. Both the fingertips and palm feature dedicated designs to facilitate the integration of tactile sensors.
 </div>
 
 <TwoColumnsVideo>
@@ -190,7 +190,7 @@ with thumb abduction/adduction.</span>
 
 ### Hand-Arm Teleoperation System
 <div class="text-justify">
-The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove's back via a custom holder to ensure synchronous tracking of wrist and finger movements. On the robotic side, the ByteDexter anthropomorphic hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm's seventh joint. The operators' wrist poses from the Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands for the ByteDexter hand.
+The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove's back via a custom holder to ensure synchronous tracking of wrist and finger movements. On the robotic side, the ByteDexter hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm's seventh joint. The operators' wrist poses captured by Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands of the ByteDexter hand.
 </div>
 
 <Figure>
@@ -244,7 +244,7 @@ grasping; (3) lid unscrewing; and (4) push-to-open lids.
 ### Long-Horizon Teleoperation Results
 
 <div class="text-justify">
-  To assess long-horizon teleoperation capabilities, we evaluated the system using a table organization task. The scenario featured a cluttered workspace filled with randomly arranged cosmetic and skincare items alongside a multi-drawer organizer. This required the robotic hand-arm system to:  (1) Retrieve objects from the table; (2) Place items into designated organizer compartments; and (3) Successfully open the drawer and insert objects into it.
+  To assess long-horizon teleoperation capabilities, we evaluated the system using a table organization task. The scenario featured a cluttered workspace filled with randomly arranged cosmetic and skincare items alongside a multi-drawer organizer. This required the robotic hand-arm system to: (1) retrieve objects from the table; (2) place items into designated organizer compartments; and (3) successfully open the drawer and insert objects into it.
 </div>
 
 <div>
@@ -261,12 +261,10 @@ grasping; (3) lid unscrewing; and (4) push-to-open lids.
 <div class="text-sm mt-6 md:max-w-3xl mx-auto w-full" style="font-family: 'Source Sans 3', sans-serif; color: #333; line-height: 1.2; padding: 10px; background-color: #fffff; margin-bottom: 20px;">
 ```bibtex
 @article{bytedance2025byteDexter,
-  author       = {Guangzeng Chen and Zhongren Cui and Min Du and Yang Gou and Zhigang Han 
-                  and Junkai Hu and Liqun Huang and Hang Li and Hao Niu and Zeyu Ren 
-                  and Ruoshi Wen and Wei Xu and Haoxiang Zhang and Jiajun Zhang and Zhengming Zhu},
-  title        = {Dexterous Teleoperation of 20-DoF ByteDexter Hand via Human Motion Retargeting},
-  journal={arXiv preprint arXiv:00000},
-  year={2025}
+  author   = {Wen, Ruoshi and Zhang, Jiajun and Chen, Guangzeng and Cui, Zhongren and Du, Min and Gou, Yang and Han, Zhigang and Hu, Junkai and Huang, Liqun and Li, Hang and Niu, Hao and Xu, Wei and Zhang, Haoxiang and Zhu, Zhengming and Ren, Zeyu},
+  title    = {Dexterous Teleoperation of 20-DoF ByteDexter Hand via Human Motion Retargeting},
+  journal  = {arXiv preprint arXiv:00000},
+  year     = {2025}
 }
 ```
 </div>
