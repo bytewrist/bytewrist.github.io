@@ -13,9 +13,9 @@
 }
 
 body {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'EB Garamond', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   letter-spacing: 0.5px;
 }
@@ -52,4 +52,7 @@ ul {
 }
 ol {
   @apply prose list-decimal list-inside w-full;
+}
+html {
+  font-size: 110%;
 }

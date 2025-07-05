@@ -7,7 +7,7 @@ export default {
 	plugins: [require('@tailwindcss/typography'),],
 	theme: {
 		fontFamily: {
-			'sans': ['Source Sans 3', 'sans-serif'],
-		}
+			'sans': ['EB Garamond', 'sans-serif'],
+		},
 	}
 }
