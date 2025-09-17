@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/Layout.astro
-title: 'Dexterous Teleoperation of 20-DoF ByteDexter Hand <br> via Human Motion Retargeting'
+title: 'ByteWrist: A Parallel Robotic Wrist Enabling Flexible and Anthropomorphic Motion for Confined Spaces'
 description: Simple project page template for your research paper, built with Astro and Tailwind CSS
 favicon: logo.png
 thumbnail: screenshot-light.png
@@ -28,7 +28,7 @@ import experiment from "../assets/experiment-c.png";
 import long_horizon from "../assets/long_horizon-c.png";
 import hand from "../assets/hand_new-c.png";
 
-import tech_report1 from "../assets/ByteDexter-Tech-Report-1-1080.mp4";
+import tech_report1 from "../assets/cover-video.mp4";
 import tech_report2 from "../assets/ByteDexter-Tech-Report-2-crf-480.mp4";
 import tech_report3 from "../assets/ByteDexter-Tech-Report-3-crf-480.mp4";
 import tech_report4 from "../assets/ByteDexter-Tech-Report-4-crf-480.mp4";
@@ -43,35 +43,7 @@ import Table from "../components/Table.astro";
   title={frontmatter.title}
   authors={[
     {
-      name: "Ruoshi Wen*,",
-      notes: [],
-    },
-    {
-      name: "Jiajun Zhang*,",
-      notes: [],
-    },
-    {
-      name: "Guangzeng Chen,",
-      notes: [],
-    },
-    {
-      name: "Zhongren Cui,",
-      notes: [],
-    },
-    {
-      name: "Min Du,",
-      notes: [],
-    },
-    {
-      name: "Yang Gou,",
-      notes: [],
-    },
-    {
-      name: "Zhigang Han,",
-      notes: [],
-    },
-    {
-      name: "Junkai Hu,",
+      name: "Jiawen Tian*,",
       notes: [],
     },
     {
@@ -79,27 +51,23 @@ import Table from "../components/Table.astro";
       notes: [],
     },
     {
-      name: "Hao Niu,",
+      name: "Zhongren Cui,",
       notes: [],
     },
     {
-      name: "Wei Xu,",
+      name: "Jingchao Qiao,",
       notes: [],
     },
     {
-      name: "Haoxiang Zhang,",
+      name: "Jiafeng Xu,",
       notes: [],
     },
     {
-      name: "Zhengming Zhu,",
+      name: "Xiao Ma,",
       notes: [],
     },
     {
-      name: "Hang Li,",
-      notes: [],
-    },
-    {
-      name: "Zeyu Ren",
+      name: "Zeyu Ren*",
       notes: [],
     },
   ]}
@@ -107,7 +75,7 @@ import Table from "../components/Table.astro";
   links={[
     {
       name: "Paper",
-      url: "/ByteDexter_Tech_Report_2025.pdf",
+      url: "/ByteWrist_in_Seed_Template.pdf",
       icon: "ri:file-pdf-2-line",
     },
     {
@@ -129,17 +97,23 @@ import Table from "../components/Table.astro";
 ## Abstract
 
 <div class="text-justify">
-Replicating human-level dexterity remains a fundamental robotics challenge, requiring integrated solutions 
-from mechatronic design to the control of high degree-of-freedom (DoF) robotic hands. While imitation 
-learning shows promise in transferring human dexterity to robots, the efficacy of trained policies 
-relies on the quality of human demonstration data. We bridge this gap with a hand-arm teleoperation 
-system featuring: (1) a 20-DoF linkage-driven anthropomorphic robotic hand  for biomimetic dexterity, 
-and (2) an optimization-based motion retargeting for real-time, high-fidelity reproduction of intricate 
-human hand motions and seamless hand–arm coordination. We validate the system via extensive empirical 
-evaluations, including dexterous in-hand manipulation tasks and a long-horizon task requiring the 
-organization of a cluttered makeup table randomly populated with nine objects. Experimental results 
-demonstrate its intuitive teleoperation interface with real-time control and the ability to generate 
-high-quality demonstration data.
+This research introduces ByteWrist, a novel highly-flexible and anthropomorphic parallel wrist 
+for robotic manipulation. ByteWrist addresses the critical limitations of existing serial and 
+parallel wrists in narrow-space operations through a compact three-stage parallel drive mechanism 
+integrated with arc-shaped end linkages. The design achieves precise RPY (Roll-Pitch-Yaw) 
+motion while maintaining exceptional compactness, making it particularly suitable for complex 
+unstructured environments such as home services, medical assistance, and precision assembly. The 
+key innovations include: (1) a nested three-stage motor-driven linkages that minimize volume 
+while enabling independent multi-DOF control, (2) arc-shaped end linkages that optimize force 
+transmission and expand motion range, and (3) a central supporting ball functioning as a spherical 
+joint that enhances structural stiffness without compromising flexibility. Meanwhile, we present 
+comprehensive kinematic modeling including forward / inverse kinematics and a numerical Jacobian 
+solution for precise control. Empirically, we observe ByteWrist demonstrates strong performance 
+in narrow-space maneuverability and dual-arm cooperative manipulation tasks, outperforming 
+Kinova-based systems. Results indicate significant improvements in compactness, efficiency, and 
+stiffness compared to traditional designs, establishing ByteWrist as a promising solution for 
+next-generation robotic manipulation in constrained environments.
+
 </div>
 
 </HighlightedSection>
