@@ -23,10 +23,6 @@ import LaTeX from "../components/LaTeX.astro";
 
 import { ImageComparison } from "../components/ImageComparison.tsx";
 
-import teleoperation_system from "../assets/teleoperation_system-c.png";
-import hand_retargeting from "../assets/hand_retargeting-c.png";
-import experiment from "../assets/experiment-c.png";
-import long_horizon from "../assets/long_horizon-c.png";
 import structure_ByteWrist from "../assets/structure-bytewrist.png";
 import kinematics from "../assets/fig2.png";
 import equation1 from "../assets/eq1.png";
@@ -39,6 +35,9 @@ import tech_report2 from "../assets/4s-Wrist-Rotation.mp4";
 import tech_report3 from "../assets/2s-Wrist-Rotation.mp4";
 import tech_report4 from "../assets/1s-Wrist-Rotation.mp4";
 import tech_report5 from "../assets/glove-box-bytemini.mp4";
+import tech_report6 from "../assets/Clothes-Hanging-Big-Scene.mp4";
+import tech_report7 from "../assets/Clothes-Hanging-1.mp4";
+import tech_report8 from "../assets/Clothes-Hanging-2.mp4";
 
 import CodeBlock from "../components/CodeBlock.astro";
 import Table from "../components/Table.astro";
@@ -249,77 +248,91 @@ within this operational region.
 </HighlightedSectionResult>
 
 <HighlightedSection>
-
-### Hand-Arm Teleoperation System
+### Confined-Space Maneuverability
 <div class="text-justify">
-The teleoperation interface comprises a Meta Quest 3 headset to track wrist poses and a Manus Quantum Metaglove for hand motions. The Quest controller is mounted to Manus glove's back via a custom holder to ensure synchronous tracking of wrist and finger movements. On the robotic side, the ByteDexter hand is mounted to a Franka Research 3 (FR3) arm, with its wrist–fingertip axis aligned to the arm's seventh joint. The operators' wrist poses captured by Quest headset are mapped directly to the FR3 end-effector, while hand motions from the Manus Glove are retargeted into joint position commands of the ByteDexter hand.
+To verify the flexibility of ByteWrist in confined spaces, this study designs a  experiment of objects grasping inside a glove box.
 </div>
 
-<Figure>
-  <Image slot="figure" source={teleoperation_system} altText="The proposed hand-arm teleoperation system." class="w-full" />
-  <span slot="caption">The hand-arm teleoperation system overview.</span>
-</Figure>
+<div>
+    <Video source={tech_report5} />
+    <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
+        In-hand Manipulation Tasks
+    </h3>
+</div>
 
 </HighlightedSection>
 
 <HighlightedSectionResult>
-### Hand Motion Retargeting
+### Dual-Arm Manipulation of Deformable Objects
 
 <div class="text-justify">
-  We retarget human hand pose data obtained from the Manus Glove into joint position references of the ByteDexter hand by solving an optimization problem that minimizes the difference between corresponding keyvectors in the robotic and human hand. 
+The dexterous clothes-hanging task in GR-3 imposes high 
+requirements on the capabilities of the robot, where the robot is required to achieve dual-arm collaboration in 
+the chest area and perform manipulation of deformable objects with high precision and high dexterity.
 </div>
 
-<TwoColumns>
-  <div class="text-justify" slot="left">
-      The right figure shows only the index-finger keyvectors for illustration. Iterating this process from the thumb to pinky and eliminating duplicates results in 15 unique keyvectors. Incorporating these keyvectors into optimization captures the majority of the grasping types: for pinch grasping, minimizing inter-finger distances aligns robotic and human hand poses to reduce operator strain; for power grasping, preserving fingertip-to-palm distances are prioritized.
-  </div>
-  <Figure slot="right">
-    <Image slot="figure" source={hand_retargeting} altText="Hand keypoint vectors." width="300" />
-    <span slot="caption">Hand keypoint vectors.</span>
-  </Figure>
-</TwoColumns>
+<div>
+    <Video source={tech_report6} />
+    <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
+        In-hand Manipulation Tasks
+    </h3>
+</div>
 
+<div>
+    <Video source={tech_report7} />
+    <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
+        In-hand Manipulation Tasks
+    </h3>
+</div>
+
+<div>
+    <Video source={tech_report8} />
+    <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
+        In-hand Manipulation Tasks
+    </h3>
+</div>
 </HighlightedSectionResult>
 
 <HighlightedSection>
-## Results
-
-### In-hand Manipulation Results
+## Conclusions
 
 <div class="text-justify">
-We evaluate three canonical in-hand manipulation primitives—(i) regrasping to translate objects between
-fingers, (ii) sliding objects relative to the palm, and (iii) rotating objects or their components, and instantiate
-them in four benchmark tasks: (1) regrasping a bottle from a precision to a power grasp; (2) multi-object
-grasping; (3) lid unscrewing; and (4) push-to-open lids.
+1.Innovative Structural Design: ByteWrist adopts a three-stage motor-driven parallel mechanism, combined 
+with arc-shaped end linkages and a central supporting ball. This design achieves a balance between 
+compactness and stiffness. The prototype test confirms that the wrist can stably realize continuous 
+RPY motion, meeting the requirements of anthropomorphic manipulation in confined spaces.
+
+2.Complete Kinematic Modeling: The forward and inverse kinematic models of ByteWrist are established.
+For forward kinematics, the Newton-Raphson method is used to solve the nonlinear equations, realizing
+the mapping from driving linkage angles θ1,θ2,θ3 to parallel platform RPY angles. For inverse kinematics,
+the rotation matrix is derived based on given RPY angles to calculate the required driving linkage
+angles. Additionally, a numerical method with an optimized step size (∆θ = 1e −3 ) is proposed to
+solve the Jacobian matrix, providing a theoretical basis for high-precision motion control.
+
+3.Excellent Performance Validation: Experimental results demonstrate ByteWrist can achieve high-
+dynamic and large-angle motion. Compared with the Kinova dual-arm robot with serial wrists, ByteMini
+(integrated with ByteWrist) features higher integration and greater flexibility. ByteMini completes
+116 hours of data collection for dexterous clothes-hanging tasks and realizes fully automated opera-
+tion, verifying ByteWrist’s ability to cooperate with dual arms for high-precision deformable object
+manipulation.
 </div>
-
-
-
 </HighlightedSection>
 
+
 <HighlightedSectionResult>
-### Long-Horizon Teleoperation Results
-
-<div class="text-justify">
-  To assess long-horizon teleoperation capabilities, we evaluated the system using a table organization task. The scenario featured a cluttered workspace filled with randomly arranged cosmetic and skincare items alongside a multi-drawer organizer. This required the robotic hand-arm system to: (1) retrieve objects from the table; (2) place items into designated organizer compartments; and (3) successfully open the drawer and insert objects into it.
-</div>
-
-
-
-</HighlightedSectionResult>
-
 ## Citation
 
 <div class="text-sm mt-6 md:max-w-3xl mx-auto w-full" style="font-family: 'EB Garamond', sans-serif; color: #333; line-height: 1.; padding: 10px; background-color: #fffff; margin-bottom: 20px;">
 ```bibtex
-@misc{bytedance2025bytedexter,
-      title={Dexterous Teleoperation of 20-DoF ByteDexter Hand via Human Motion Retargeting}, 
-      author={Ruoshi Wen and Jiajun Zhang and Guangzeng Chen and Zhongren Cui and Min Du and Yang Gou and Zhigang Han and Junkai Hu and Liqun Huang and Hao Niu and Wei Xu and Haoxiang Zhang and Zhengming Zhu and Hang Li and Zeyu Ren},
+@misc{bytedance2025bytewrist,
+      title={ByteWrist: A Parallel Robotic Wrist Enabling Flexible and Anthropomorphic Motion for Confined Spaces}, 
+      author={Jiawen Tian, Liqun Huang, Zhongren Cui, Jingchao Qiao, Jiafeng Xu, Xiao Ma, Zeyu Ren},
       year={2025},
-      eprint={2507.03227},
+      eprint={},
       archivePrefix={arXiv},
       primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2507.03227}, 
+      url={}, 
 }
 ```
 </div>
+</HighlightedSectionResult>
