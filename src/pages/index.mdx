@@ -83,14 +83,9 @@ import Table from "../components/Table.astro";
     },
     {
       name: "arXiv",
-      url: "https://arxiv.org/abs/2507.03227",
+      url: "",
       icon: "academicons:arxiv",
     },
-    {
-      name: "Youtube",
-      url: "https://www.youtube.com/watch?v=7AAqSS7KC3A",
-      icon: "mdi:youtube",
-    }
   ]}
   source={tech_report1}
 />
@@ -153,7 +148,7 @@ platform can achieve precise RPY motion.
 ## Kinematics of ByteWrist
 
 <Figure>
-  <Image slot="figure" source={kinematics} altText="Coordinate System Definition of ByteWrist." class="w-full" />
+  <Image slot="figure" source={kinematics} altText="Coordinate System Definition of ByteWrist." width="600" class="w-full" />
   <span slot="caption">Coordinate System Definition of ByteWrist. </span>
 </Figure>
 
@@ -166,7 +161,7 @@ Forward kinematics can be solved by the following system of equations.
 </div>
 
 <Figure>
-  <Image slot="figure" source={equation1} altText="equation1." class="w-full" />
+  <Image slot="figure" source={equation1} altText="equation1." width="250" class="w-full" />
 </Figure>
 
 <div class="text-justify">
@@ -198,7 +193,7 @@ To verify ByteWrist functionality, we integrate them into our 22-DoF dual-arm mo
 </div>
 
 <Figure>
-  <Image slot="figure" source={bytemini} altText="Description of the ByteMini Robot." class="w-full" />
+  <Image slot="figure" source={bytemini} altText="Description of the ByteMini Robot." width="600" class="w-full" />
   <span slot="caption">Description of the ByteMini Robot. </span>
 </Figure>
 </HighlightedSection>
@@ -230,7 +225,7 @@ wrist to move in accordance with following equations.
 </div>
 
 <Figure>
-  <Image slot="figure" source={equation2} altText="equation1." class="w-full" />
+  <Image slot="figure" source={equation2} altText="equation1." width="200" class="w-full" />
 </Figure>
 
 <div class="text-justify">
@@ -275,23 +270,30 @@ the chest area and perform manipulation of deformable objects with high precisio
 <div>
     <Video source={tech_report6} />
     <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
-        ByteWrist Based Dual-Arm Manipulation of Deformable Objects 1
+        
     </h3>
 </div>
 
-<div>
+<TwoColumnsVideo>
+  <div slot="left" style="text-align: center;">
     <Video source={tech_report7} />
+    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;"></span>
+  </div>
+  <div slot="right" style="text-align: center;">
+    <Video source={tech_report8} />
+    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;"></span>
+  </div>
+</TwoColumnsVideo>
+
+<div>
     <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
-        ByteWrist Based Dual-Arm Manipulation of Deformable Objects 2
+        ByteWrist Based Dual-Arm Manipulation of Deformable Objects
     </h3>
 </div>
 
-<div>
-    <Video source={tech_report8} />
-    <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
-        ByteWrist Based Dual-Arm Manipulation of Deformable Objects 3
-    </h3>
-</div>
+
 </HighlightedSectionResult>
 
 <HighlightedSection>
