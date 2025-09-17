@@ -17,6 +17,7 @@ import Figure from "../components/Figure.astro";
 import Image from "../components/Image.astro";
 import TwoColumns from "../components/TwoColumns.astro";
 import TwoColumnsVideo from "../components/TwoColumnsVideo.astro";
+import ThreeColumnsVideo from "../components/ThreeColumnsVideo.astro";
 import YouTubeVideo from "../components/YouTubeVideo.astro";
 import LaTeX from "../components/LaTeX.astro";
 
@@ -26,15 +27,18 @@ import teleoperation_system from "../assets/teleoperation_system-c.png";
 import hand_retargeting from "../assets/hand_retargeting-c.png";
 import experiment from "../assets/experiment-c.png";
 import long_horizon from "../assets/long_horizon-c.png";
-import hand from "../assets/hand_new-c.png";
+import structure_ByteWrist from "../assets/structure-bytewrist.png";
+import kinematics from "../assets/fig2.png";
+import equation1 from "../assets/eq1.png";
+import bytemini from "../assets/fig3.png";
+import equation2 from "../assets/eq2.png";
+import motion_range from "../assets/fig4.png";
 
 import tech_report1 from "../assets/cover-video.mp4";
-import tech_report2 from "../assets/ByteDexter-Tech-Report-2-crf-480.mp4";
-import tech_report3 from "../assets/ByteDexter-Tech-Report-3-crf-480.mp4";
-import tech_report4 from "../assets/ByteDexter-Tech-Report-4-crf-480.mp4";
-import tech_report5 from "../assets/ByteDexter-Tech-Report-5-crf-480.mp4";
-import tech_report6 from "../assets/ByteDexter-Tech-Report-6-crf-30.mp4";
-import tech_report7 from "../assets/ByteDexter-Tech-Report-7-crf-30.mp4";
+import tech_report2 from "../assets/4s-Wrist-Rotation.mp4";
+import tech_report3 from "../assets/2s-Wrist-Rotation.mp4";
+import tech_report4 from "../assets/1s-Wrist-Rotation.mp4";
+import tech_report5 from "../assets/glove-box-bytemini.mp4";
 
 import CodeBlock from "../components/CodeBlock.astro";
 import Table from "../components/Table.astro";
@@ -92,7 +96,7 @@ import Table from "../components/Table.astro";
   source={tech_report1}
 />
 
-<HighlightedSection>
+<HighlightedSectionResult>
 
 ## Abstract
 
@@ -116,50 +120,134 @@ next-generation robotic manipulation in constrained environments.
 
 </div>
 
-</HighlightedSection>
+</HighlightedSectionResult>
 
-<HighlightedSectionResult>
-## Method
-
-### ByteDexter Hand Design
+<HighlightedSection>
+## Design and Prototype of ByteWrist
 
 <div class="text-justify">
-ByteDexter is an anthropomorphic dexterous hand developed by ByteDance Seed. It features 20 degrees of freedom (DoF), with 15 fully actuated DoFs. The seamless integration of 15 motors and embedded boards within the palm enables ByteDexter to function as a standalone hand module. Both the fingertips and palm feature dedicated designs to facilitate the integration of tactile sensors.
-</div>
+ByteWrist is illustrated in Fig. 1a, which is driven by three stage motors. The output of the first-stage 
+motor is connected to the first-stage driving linkage, which is further linked to the parallel platform via an 
+arc-shaped end linkage. Meanwhile, the second-stage motor is mounted inside the first-stage driving linkage, 
+its output connects to the second-stage driving linkage, which is also linked to the parallel platform through an 
+arc-shaped end linkage. Similarly, the third-stage motor is fixed within the second-stage driving linkage, with 
+its output attached to the third-stage driving linkage that connects to the parallel platform via an arc-shaped 
+end linkage.
 
-<TwoColumnsVideo>
-  <div slot="left" style="text-align: center;">
-    <Video source={tech_report2} />
-    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Finger Dexterity Demonstration</span>
-  </div>
-  <div slot="right" style="text-align: center;">
-    <Video source={tech_report3} />
-    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Teleoperation via Data Glove</span>
-  </div>
-</TwoColumnsVideo>
+All three stage driving linkages and arc-shaped end linkages, as well as arc-shaped end linkages and parallel
+platform, are connected via revolute pairs. All these six revolute pairs are oriented toward the center of the
+parallel platform.
 
-<TwoColumnsVideo>
-  <div slot="left" style="text-align: center;">
-    <Video source={tech_report4} />
-    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">Grasping of Daily Objects</span>
-  </div>
-  <div slot="right" style="text-align: center;">
-    <Video source={tech_report5} />
-    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">In-Hand Manipulation</span>
-  </div>
-</TwoColumnsVideo>
-
-<div class="text-justify">
-  ByteDexter's finger design adopts a parallel-serial kinematic structure: a 2-DoF MCP joint, 1-DoF PIP joint, and passively driven 1-DoF DIP joint replicate the kinematics of human index, middle, ring, and pinky fingers. Its novel thumb design decouples the MCP joint's two DoFs, expanding the workspace and enhancing precision grasping performance.
+To enhance the stiffness of the parallel platform, a supporting ball is mounted at its center and connected
+to the platform via a spherical joint. By controlling the movement of three stage motors, the end parallel
+platform can achieve precise RPY motion.
 </div>
 
 <Figure>
-  <Image slot="figure" source={hand} altText="The proposed hand-arm teleoperation system." class="w-full" />
-  <span slot="caption">The ByteDexter hand. (a) robotic finger with 2-DoF MCP joint, 1-DoF PIP
-joint, with a passively actuated 1-DoF DIP joint, (b) the thumb's kinematic structure, and (c) ByteDexter hand
-with thumb abduction/adduction.</span>
+  <Image slot="figure" source={structure_ByteWrist} altText="Design and Prototype of ByteWrist." class="w-full" />
+  <span slot="caption">Design and Prototype of ByteWrist. (a) Sturcture Design of ByteWrist, (b) Prototype of ByteWrist.</span>
+</Figure>
+
+</HighlightedSection>
+
+<HighlightedSectionResult>
+## Kinematics of ByteWrist
+
+<Figure>
+  <Image slot="figure" source={kinematics} altText="Coordinate System Definition of ByteWrist." class="w-full" />
+  <span slot="caption">Coordinate System Definition of ByteWrist. </span>
+</Figure>
+
+<div class="text-justify">
+The kinematics of the parallel wrist involves solving the relationship between θ1, θ2, θ3 and the RPY angles
+of the parallel platform. For the forward kinematics part, the inputs are θ1, θ2, θ3, and the outputs are RPY
+angles of the parallel platform.
+
+Forward kinematics can be solved by the following system of equations.
+</div>
+
+<Figure>
+  <Image slot="figure" source={equation1} altText="equation1." class="w-full" />
+</Figure>
+
+<div class="text-justify">
+Given that this system of equations is nonlinear, the Newton-Raphson method is adopted herein for iterative solution.
+
+This research adopts the numerical method to solve the Jacobian matrix.
+</div>
+</HighlightedSectionResult>
+
+
+<HighlightedSection>
+## Experiments
+### Prototype of ByteMini
+
+<div class="text-justify">
+To verify ByteWrist functionality, we integrate them into our 22-DoF dual-arm mobile robot, ByteMini. Key design features include:
+
+1.Arms: 7-DoF in SRS (Spherical-Revolute-Spherical) configuration with ByteWrist as wrist modules.
+
+2.Grippers: 1-DoF grippers paired with RealSense D405 cameras for close-range vision.
+
+3.Waist: 1-DoF lifting mechanism in high stiffness for height adjustment.
+
+4.Chassis: 3-DoF omnidirectional mobile platform for flexible movement.
+
+5.Head: 2-DoF in Pitch and Yaw motion, integrated with a RealSense D457 camera for primary vision.
+
+6.Computing and Power: Dell T3280 computer as the main controller and 4.08 kWh battery for power supply.
+</div>
+
+<Figure>
+  <Image slot="figure" source={bytemini} altText="Description of the ByteMini Robot." class="w-full" />
+  <span slot="caption">Description of the ByteMini Robot. </span>
+</Figure>
+</HighlightedSection>
+
+<HighlightedSectionResult>
+### ByteWrist Motion Range
+
+<ThreeColumnsVideo>
+  <div slot="left" style="text-align: center;">
+    <Video source={tech_report2} />
+    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">4s per circle</span>
+  </div>
+    <div slot="middle" style="text-align: center;">
+    <Video source={tech_report3} />
+    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">2s per circle</span>
+  </div>
+  <div slot="right" style="text-align: center;">
+    <Video source={tech_report4} />
+    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">1s per circle</span>
+  </div>
+</ThreeColumnsVideo>
+
+<div class="text-justify">
+To verify the wrist range motion and high flexibility, this study designs a circular trajectory, enabling the
+wrist to move in accordance with following equations.
+</div>
+
+<Figure>
+  <Image slot="figure" source={equation2} altText="equation1." class="w-full" />
+</Figure>
+
+<div class="text-justify">
+As illustrated in Fig. 4(a-c), the input of wrist movement and the actual position feedback are plotted for 
+cycles T = 4s, 2s and 1s respectively. Postures of ByteWrist at 8 distinct moments are presented in Fig. 
+4(d-k), each corresponding to different pitch and yaw angles. Throughout the wrist movement, the yaw 
+direction remains constant. Experimental results demonstrate that the robotic wrist exhibits flexible motion 
+within this operational region.
+</div>
+
+<Figure>
+  <Image slot="figure" source={motion_range} altText="Motion Range of ByteWrist." class="w-full" />
+  <span slot="caption">Motion Range of ByteWrist. </span>
 </Figure>
 </HighlightedSectionResult>
+
 <HighlightedSection>
 
 ### Hand-Arm Teleoperation System
@@ -205,12 +293,7 @@ them in four benchmark tasks: (1) regrasping a bottle from a precision to a powe
 grasping; (3) lid unscrewing; and (4) push-to-open lids.
 </div>
 
-<div>
-    <Video source={tech_report6} />
-    <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
-        In-hand Manipulation Tasks
-    </h3>
-</div>
+
 
 </HighlightedSection>
 
@@ -221,12 +304,7 @@ grasping; (3) lid unscrewing; and (4) push-to-open lids.
   To assess long-horizon teleoperation capabilities, we evaluated the system using a table organization task. The scenario featured a cluttered workspace filled with randomly arranged cosmetic and skincare items alongside a multi-drawer organizer. This required the robotic hand-arm system to: (1) retrieve objects from the table; (2) place items into designated organizer compartments; and (3) successfully open the drawer and insert objects into it.
 </div>
 
-<div>
-    <Video source={tech_report7} />
-    <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
-        Long-Horizon Table Organization Task
-    </h3>
-</div>
+
 
 </HighlightedSectionResult>
 
