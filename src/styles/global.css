@@ -56,3 +56,12 @@ ol {
 html {
   font-size: 110%;
 }
+
+h3.custom-small-h3 {
+  font-size: 10px !important;
+  color: #777;
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.0;
+  font-family: 'EB Garamond', sans-serif;
+}
