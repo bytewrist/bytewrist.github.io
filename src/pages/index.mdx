@@ -111,14 +111,33 @@ in narrow-space maneuverability and dual-arm cooperative manipulation tasks, out
 Kinova-based systems. Results indicate significant improvements in compactness, efficiency, and 
 stiffness compared to traditional designs, establishing ByteWrist as a promising solution for 
 next-generation robotic manipulation in constrained environments.
-
+<ThreeColumnsVideo>
+  <div slot="left" style="text-align: center;">
+    <Video source={tech_report2} />
+    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">4s per circle.</span>
+  </div>
+    <div slot="middle" style="text-align: center;">
+    <Video source={tech_report3} />
+    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">2s per circle.</span>
+  </div>
+  <div slot="right" style="text-align: center;">
+    <Video source={tech_report4} />
+    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">1s per circle.</span>
+  </div>
+</ThreeColumnsVideo>
 </div>
 
 </HighlightedSectionResult>
 
 <HighlightedSection>
 ## Design and Prototype of ByteWrist
-
+<Figure>
+  <Image slot="figure" source={structure_ByteWrist} altText="Design and Prototype of ByteWrist." class="w-full" />
+  <span slot="caption"><strong>Figure 1</strong> Design and Prototype of ByteWrist. (a) Sturcture Design of ByteWrist, (b) Prototype of ByteWrist.</span>
+</Figure>
 <div class="text-justify">
 ByteWrist is illustrated in Fig. 1a, which is driven by three stage motors. The output of the first-stage 
 motor is connected to the first-stage driving linkage, which is further linked to the parallel platform via an 
@@ -141,10 +160,7 @@ Quasi-Direct Drive based actuators manufactured by
 [RobStride Dynamics](https://www.robstride.com/).
 </div>
 
-<Figure>
-  <Image slot="figure" source={structure_ByteWrist} altText="Design and Prototype of ByteWrist." class="w-full" />
-  <span slot="caption"><strong>Figure 1</strong> Design and Prototype of ByteWrist. (a) Sturcture Design of ByteWrist, (b) Prototype of ByteWrist.</span>
-</Figure>
+
 
 </HighlightedSection>
 
@@ -207,23 +223,7 @@ To verify ByteWrist functionality, we integrate them into our 22-DoF dual-arm mo
 <HighlightedSectionResult>
 ### ByteWrist Motion Range
 
-<ThreeColumnsVideo>
-  <div slot="left" style="text-align: center;">
-    <Video source={tech_report2} />
-    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
-     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">4s per circle.</span>
-  </div>
-    <div slot="middle" style="text-align: center;">
-    <Video source={tech_report3} />
-    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
-     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">2s per circle.</span>
-  </div>
-  <div slot="right" style="text-align: center;">
-    <Video source={tech_report4} />
-    <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
-     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">1s per circle.</span>
-  </div>
-</ThreeColumnsVideo>
+
 
 <div class="text-justify">
 To verify the wrist range motion and high flexibility, this study designs a circular trajectory, enabling the
@@ -263,7 +263,7 @@ To verify the flexibility of ByteWrist in confined spaces, this study designs a 
     </h3>
 </div>
 
-<div class="text-justify">
+<div class="text-justify" style="font-family: 'EB Garamond', sans-serif; font-size: 18px; color: #777; font-style: italic; margin-top: 10px; line-height: 1.5;">
 The jitter in movement stems from the jitter in the operator's instructions, and the task is quite challenging for the data collectors.
 </div>
 </HighlightedSection>
