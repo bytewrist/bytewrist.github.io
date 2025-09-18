@@ -139,7 +139,7 @@ platform can achieve precise RPY motion.
 
 <Figure>
   <Image slot="figure" source={structure_ByteWrist} altText="Design and Prototype of ByteWrist." class="w-full" />
-  <span slot="caption">Design and Prototype of ByteWrist. (a) Sturcture Design of ByteWrist, (b) Prototype of ByteWrist.</span>
+  <span slot="caption"><strong>Figure 1</strong> Design and Prototype of ByteWrist. (a) Sturcture Design of ByteWrist, (b) Prototype of ByteWrist.</span>
 </Figure>
 
 </HighlightedSection>
@@ -149,7 +149,7 @@ platform can achieve precise RPY motion.
 
 <Figure>
   <Image slot="figure" source={kinematics} altText="Coordinate System Definition of ByteWrist." class="w-full" />
-  <span slot="caption">Coordinate System Definition of ByteWrist. </span>
+  <span slot="caption"><strong>Figure 2</strong> Coordinate System Definition of ByteWrist. </span>
 </Figure>
 
 <div class="text-justify">
@@ -181,22 +181,22 @@ This research adopts the numerical method to solve the Jacobian matrix.
 <div class="text-justify">
 To verify ByteWrist functionality, we integrate them into our 22-DoF dual-arm mobile robot, ByteMini. Key design features include:
 
-1.Arms: 7-DoF in SRS (Spherical-Revolute-Spherical) configuration with ByteWrist as wrist modules.
+1.&nbsp;<strong>Arms:</strong> 7-DoF in SRS (Spherical-Revolute-Spherical) configuration with ByteWrist as wrist modules.
 
-2.Grippers: 1-DoF grippers paired with RealSense D405 cameras for close-range vision.
+2.&nbsp;<strong>Grippers:</strong> 1-DoF grippers paired with RealSense D405 cameras for close-range vision.
 
-3.Waist: 1-DoF lifting mechanism in high stiffness for height adjustment.
+3.&nbsp;<strong>Waist:</strong> 1-DoF lifting mechanism in high stiffness for height adjustment.
 
-4.Chassis: 3-DoF omnidirectional mobile platform for flexible movement.
+4.&nbsp;<strong>Chassis:</strong> 3-DoF omnidirectional mobile platform for flexible movement.
 
-5.Head: 2-DoF in Pitch and Yaw motion, integrated with a RealSense D457 camera for primary vision.
+5.&nbsp;<strong>Head:</strong> 2-DoF in Pitch and Yaw motion, integrated with a RealSense D457 camera for primary vision.
 
-6.Computing and Power: Dell T3280 computer as the main controller and 4.08 kWh battery for power supply.
+6.&nbsp;<strong>Computing and Power:</strong> Dell T3280 computer as the main controller and 4.08 kWh battery for power supply.
 </div>
 
 <Figure>
   <Image slot="figure" source={bytemini} altText="Description of the ByteMini Robot." class="w-full" />
-  <span slot="caption">Description of the ByteMini Robot. </span>
+  <span slot="caption"><strong>Figure 3</strong> Description of the ByteMini Robot. </span>
 </Figure>
 </HighlightedSection>
 
@@ -207,17 +207,17 @@ To verify ByteWrist functionality, we integrate them into our 22-DoF dual-arm mo
   <div slot="left" style="text-align: center;">
     <Video source={tech_report2} />
     <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
-     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">4s per circle</span>
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">4s per circle.</span>
   </div>
     <div slot="middle" style="text-align: center;">
     <Video source={tech_report3} />
     <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
-     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">2s per circle</span>
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">2s per circle.</span>
   </div>
   <div slot="right" style="text-align: center;">
     <Video source={tech_report4} />
     <span slot="caption" style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color:
-     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">1s per circle</span>
+     #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">1s per circle.</span>
   </div>
 </ThreeColumnsVideo>
 
@@ -232,16 +232,16 @@ wrist to move in accordance with following equations.
 \\end{cases}`} />
 
 <div class="text-justify">
-As illustrated in (a-c), the input of wrist movement and the actual position feedback are plotted for 
+As illustrated in Fig. 4(a-c), the input of wrist movement and the actual position feedback are plotted for 
 cycles T = 4s, 2s and 1s respectively. Postures of ByteWrist at 8 distinct moments are presented in 
-(d-k), each corresponding to different pitch and yaw angles. Throughout the wrist movement, the yaw 
+Fig. 4(d-k), each corresponding to different pitch and yaw angles. Throughout the wrist movement, the yaw 
 direction remains constant. Experimental results demonstrate that the robotic wrist exhibits flexible motion 
 within this operational region.
 </div>
 
 <Figure>
   <Image slot="figure" source={motion_range} altText="Motion Range of ByteWrist." class="w-full" />
-  <span slot="caption">Motion Range of ByteWrist. </span>
+  <span slot="caption"><strong>Figure 4</strong> Motion Range of ByteWrist. </span>
 </Figure>
 </HighlightedSectionResult>
 
@@ -259,6 +259,9 @@ To verify the flexibility of ByteWrist in confined spaces, this study designs a 
     </h3>
 </div>
 
+<div class="text-justify">
+The jitter in movement stems from the jitter in the operator's instructions, and the task is quite challenging for the data collectors.
+</div>
 </HighlightedSection>
 
 <HighlightedSectionResult>
@@ -292,7 +295,7 @@ the chest area and perform manipulation of deformable objects with high precisio
 
 <div>
     <h3 style="font-family: 'EB Garamond', sans-serif; font-weight: 600; color: #333; margin-top: 12px; text-align: center; font-size: 18px; letter-spacing: 1px;">
-        ByteWrist Based Dual-Arm Manipulation of Deformable Objects
+        ByteWrist Based Dual-Arm Manipulation of Deformable Objects.
     </h3>
 </div>
 
@@ -303,19 +306,19 @@ the chest area and perform manipulation of deformable objects with high precisio
 ## Conclusions
 
 <div class="text-justify">
-1.Innovative Structural Design: ByteWrist adopts a three-stage motor-driven parallel mechanism, combined 
+1.&nbsp;<strong>Innovative Structural Design:</strong> ByteWrist adopts a three-stage motor-driven parallel mechanism, combined 
 with arc-shaped end linkages and a central supporting ball. This design achieves a balance between 
 compactness and stiffness. The prototype test confirms that the wrist can stably realize continuous 
 RPY motion, meeting the requirements of anthropomorphic manipulation in confined spaces.
 
-2.Complete Kinematic Modeling: The forward and inverse kinematic models of ByteWrist are established.
+2.&nbsp;<strong>Complete Kinematic Modeling:</strong> The forward and inverse kinematic models of ByteWrist are established.
 For forward kinematics, the Newton-Raphson method is used to solve the nonlinear equations, realizing
 the mapping from driving linkage angles <LaTeX formula={`\\theta_1`} inline />, <LaTeX formula={`\\theta_2`} inline />, <LaTeX formula={`\\theta_3`} inline /> to parallel platform RPY angles. For inverse kinematics,
 the rotation matrix is derived based on given RPY angles to calculate the required driving linkage
 angles. Additionally, a numerical method with an optimized step size (<LaTeX formula={`\\Delta \\theta = 1 \\times 10^{-3}`} inline />) is proposed to
 solve the Jacobian matrix, providing a theoretical basis for high-precision motion control.
 
-3.Excellent Performance Validation: Experimental results demonstrate ByteWrist can achieve high-
+3.&nbsp;<strong>Excellent Performance Validation:</strong> Experimental results demonstrate ByteWrist can achieve high-
 dynamic and large-angle motion. Compared with the Kinova dual-arm robot with serial wrists, ByteMini
 (integrated with ByteWrist) features higher integration and greater flexibility. ByteMini completes
 116 hours of data collection for dexterous clothes-hanging tasks and realizes fully automated opera-
@@ -328,7 +331,8 @@ manipulation.
 <HighlightedSectionResult>
 ## Citation
 
-<div class="text-sm mt-6 md:max-w-3xl mx-auto w-full" style="font-family: 'EB Garamond', sans-serif; color: #333; line-height: 1.; padding: 10px; background-color: #fffff; margin-bottom: 20px;">
+<div class="text-sm w-full" style="font-family: 'EB Garamond', sans-serif; color: #333;
+line-height: 1.; background-color: #fffff; margin-bottom: 20px;">
 ```bibtex
 @misc{bytedance2025bytewrist,
       title={ByteWrist: A Parallel Robotic Wrist Enabling Flexible and Anthropomorphic Motion for Confined Spaces}, 
