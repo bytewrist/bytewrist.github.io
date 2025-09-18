@@ -57,11 +57,14 @@ html {
   font-size: 110%;
 }
 
-h3.custom-small-h3 {
-  font-size: 10px !important;
-  color: #777;
-  font-style: italic;
-  margin-top: 10px;
-  line-height: 1.0;
-  font-family: 'EB Garamond', sans-serif;
+body .custommini {
+  font-family: 'EB Garamond', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.5px !important;
+  color: #777 !important;
+  font-style: italic !important;
+  margin-top: 0px !important;
+  text-align: center;
 }
