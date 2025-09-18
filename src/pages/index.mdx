@@ -153,16 +153,18 @@ platform can achieve precise RPY motion.
 </Figure>
 
 <div class="text-justify">
-The kinematics of the parallel wrist involves solving the relationship between θ1, θ2, θ3 and the RPY angles
-of the parallel platform. For the forward kinematics part, the inputs are θ1, θ2, θ3, and the outputs are RPY
+The kinematics of the parallel wrist involves solving the relationship between <LaTeX formula={`\\theta_1`} inline />, <LaTeX formula={`\\theta_2`} inline />, <LaTeX formula={`\\theta_3`} inline /> and the RPY angles
+of the parallel platform. For the forward kinematics part, the inputs are <LaTeX formula={`\\theta_1`} inline />, <LaTeX formula={`\\theta_2`} inline />, <LaTeX formula={`\\theta_3`} inline />, and the outputs are RPY
 angles of the parallel platform.
 
 Forward kinematics can be solved by the following system of equations.
 </div>
 
-<Figure>
-  <Image slot="figure" source={equation1} altText="equation1." class="w-full" />
-</Figure>
+<LaTeX formula={`\\begin{cases}
+\\dfrac{\\overrightarrow{O_1P_4} \\cdot \\overrightarrow{O_1P_5}}{\\left| \\overrightarrow{O_1P_4} \\right| \\cdot \\left| \\overrightarrow{O_1P_5} \\right|} = \\cos \\dfrac{2\\pi}{3} \\\\
+\\dfrac{\\overrightarrow{O_1P_4} \\cdot \\overrightarrow{O_1P_6}}{\\left| \\overrightarrow{O_1P_4} \\right| \\cdot \\left| \\overrightarrow{O_1P_6} \\right|} = \\cos \\dfrac{2\\pi}{3} \\\\
+\\dfrac{\\overrightarrow{O_1P_5} \\cdot \\overrightarrow{O_1P_6}}{\\left| \\overrightarrow{O_1P_5} \\right| \\cdot \\left| \\overrightarrow{O_1P_6} \\right|} = \\cos \\dfrac{2\\pi}{3}
+\\end{cases}`} />
 
 <div class="text-justify">
 Given that this system of equations is nonlinear, the Newton-Raphson method is adopted herein for iterative solution.
@@ -224,9 +226,10 @@ To verify the wrist range motion and high flexibility, this study designs a circ
 wrist to move in accordance with following equations.
 </div>
 
-<Figure>
-  <Image slot="figure" source={equation2} altText="equation1." class="w-full" />
-</Figure>
+<LaTeX formula={`\\begin{cases}
+\\beta^2 + \\gamma^2 = 0.68 \\\\
+\\alpha = 0
+\\end{cases}`} />
 
 <div class="text-justify">
 As illustrated in (a-c), the input of wrist movement and the actual position feedback are plotted for 
@@ -307,9 +310,9 @@ RPY motion, meeting the requirements of anthropomorphic manipulation in confined
 
 2.Complete Kinematic Modeling: The forward and inverse kinematic models of ByteWrist are established.
 For forward kinematics, the Newton-Raphson method is used to solve the nonlinear equations, realizing
-the mapping from driving linkage angles θ1,θ2,θ3 to parallel platform RPY angles. For inverse kinematics,
+the mapping from driving linkage angles <LaTeX formula={`\\theta_1`} inline />, <LaTeX formula={`\\theta_2`} inline />, <LaTeX formula={`\\theta_3`} inline /> to parallel platform RPY angles. For inverse kinematics,
 the rotation matrix is derived based on given RPY angles to calculate the required driving linkage
-angles. Additionally, a numerical method with an optimized step size (∆θ = 1e −3 ) is proposed to
+angles. Additionally, a numerical method with an optimized step size (<LaTeX formula={`\\Delta \\theta = 1 \\times 10^{-3}`} inline />) is proposed to
 solve the Jacobian matrix, providing a theoretical basis for high-precision motion control.
 
 3.Excellent Performance Validation: Experimental results demonstrate ByteWrist can achieve high-

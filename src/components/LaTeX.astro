@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { formula = "", inline } = Astro.props;
-const html = katex.renderToString(formula, { throwOnError: false });
+const html = katex.renderToString(formula, { throwOnError: false , displayMode: !inline});
 ---
 
 {
