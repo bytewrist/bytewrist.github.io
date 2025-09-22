@@ -6,18 +6,33 @@ interface Props {
 const { source } = Astro.props;
 ---
 
-<div class="w-full flex justify-center">
+
+<div class="w-full flex justify-center relative group">
   <video
-      class="w-full h-auto aspect-video rounded-lg"
-      autoplay
-      controls
-      muted
-      loop
-      playsinline preload="none"
-      controlslist="nodownload nofullscreen"
-      disablePictureInPicture
-      oncontextmenu="return false;"
-    >
+    id="video-player"
+    class="w-full h-auto aspect-video rounded-lg"
+    autoplay
+    controls
+    muted
+    loop
+    playsinline preload="none"
+    controlslist="nodownload"
+    disablePictureInPicture
+    oncontextmenu="return false;"
+  >
     <source src={source} type="video/mp4" />
   </video>
+  <button
+    type="button"
+    class="absolute top-2 right-2 z-10 p-2 rounded bg-white/80 hover:bg-white shadow group-hover:opacity-100 opacity-80 transition"
+    aria-label="全屏播放"
+    onclick="(function(){
+      var video = this.parentElement.querySelector('video');
+      if (video.requestFullscreen) video.requestFullscreen();
+      else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+      else if (video.msRequestFullscreen) video.msRequestFullscreen();
+    }).call(this)"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4m8 0h4v4m0 8v4h-4m-8 0H4v-4"/></svg>
+  </button>
 </div>
